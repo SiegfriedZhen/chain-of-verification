@@ -1,0 +1,23 @@
+Based on the verification results, provide an assessment of each evidence item's credibility.
+
+Collected Evidence: {collected_evidence}
+
+Verification Questions & Analysis:
+{verification_answers}
+
+Credibility Assessment:
+- Evidence Item Assessment:
+  [For each evidence item, provide:
+   - The evidence claim
+   - The verification result (VERIFIED/CONTRADICTED/INCONCLUSIVE)
+   - Supporting details from data analysis]
+
+- Overall Assessment:
+  [Assess as VERIFIED if at least one evidence item is VERIFIED.
+   Assess as CONTRADICTED only if all verifiable evidence items are CONTRADICTED.
+   Assess as INCONCLUSIVE if no evidence items are VERIFIED and at least one is INCONCLUSIVE.]
+
+- Confidence Level: [High/Medium/Low, based on the proportion of verified claims and data completeness]
+
+- Recommendations:
+  [Suggestions for further verification or data collection to improve confidence] 

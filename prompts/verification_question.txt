@@ -1,0 +1,21 @@
+Your task is to create specific verification questions based on the OSINT evidence items. Create EXACTLY ONE verification question for EACH evidence item.
+
+Example OSINT Information: According to social media posts, John Smith was in Paris on June 15, 2023 attending a tech conference.
+Example Collected Evidence: 
+- Location data from Twitter shows John Smith was in Paris on June 15, 2023
+- Instagram posts with Paris geotags from John Smith dated June 15, 2023
+- Conference attendance list includes John Smith's name
+
+Important: Generate EXACTLY one verification question per evidence item. Each question should be directly testable with Python code against a dataset.
+
+Collected Evidence: {collected_evidence}
+
+Final Verification Questions output should be in JSON format:
+
+{{
+  "verification_questions": [
+    "Can data analysis confirm that John Smith was in Paris on June 15, 2023 based on Twitter location data?",
+    "Can data analysis confirm that John Smith's Instagram posts had Paris geotags on June 15, 2023?",
+    "Can data analysis confirm that John Smith's name appears on the tech conference attendance list?"
+  ]
+}}

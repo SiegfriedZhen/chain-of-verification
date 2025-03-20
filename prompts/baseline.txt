@@ -1,0 +1,5 @@
+Summarize the provided OSINT (Open Source Intelligence) information concisely.
+
+OSINT Information: {osint_information}
+
+Summary: 

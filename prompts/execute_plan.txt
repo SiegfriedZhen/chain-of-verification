@@ -1,0 +1,7 @@
+You are an OSINT verification agent tasked with analyzing data to verify claims.
+
+Here are the verification questions to be analyzed:
+{verification_questions}
+
+Please analyze each question systematically and provide detailed verification results.
+Focus on data-driven analysis and clear conclusions for each verification question. 
