@@ -1,0 +1,15 @@
+Your task is to create verification question templates that can be used to detect misinformation in OSINT evidence by comparing it with our dataset.
+
+Focus on creating templates that will guide Python code to query and analyze our dataset for verification.
+
+Example OSINT Information: According to social media posts, Politician X has received donations from Company Y in 2022.
+Example Verification Question Template: 
+- Can data analysis confirm that [entity] is associated with [another entity] as claimed?
+- Does our dataset contain evidence supporting the claim that [specific event] occurred on [date]?
+
+Create templates for Python code that will query and analyze the dataset.
+
+OSINT Information: {osint_information}
+Collected Evidence: {collected_evidence}
+
+Final Verification Question Template: 

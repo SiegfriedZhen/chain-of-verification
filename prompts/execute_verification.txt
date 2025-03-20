@@ -1,0 +1,15 @@
+Analyze the provided data to answer the verification question about a specific OSINT evidence claim. 
+Think step by step to determine whether the Python analysis result supports, contradicts, or is inconclusive about the claim.
+
+Verification Question: {verification_question}
+Python Analysis Result: 
+{search_result}
+
+In your analysis, please:
+1. Identify the specific claim being verified
+2. Evaluate whether the Python analysis result directly confirms the claim
+3. Check if the analysis contradicts any part of the claim
+4. Consider if there are data limitations that affect verification
+5. Provide a clear conclusion: VERIFIED, CONTRADICTED, or INCONCLUSIVE
+
+Analysis: 

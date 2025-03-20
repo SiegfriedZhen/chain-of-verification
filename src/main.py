@@ -4,7 +4,7 @@ from pprint import pprint
 
 from langchain.chat_models import ChatOpenAI
 
-from route_chain import RouteCOVEChain
+from depricated.route_chain import RouteCOVEChain
 
 load_dotenv("/workspace/.env")
 

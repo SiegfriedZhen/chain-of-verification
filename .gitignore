@@ -14,5 +14,5 @@ __pypackages__/
 
 .env
 
-*.txt
-*.json
+data/
+depricated/
