@@ -6,8 +6,87 @@ OSINT Verification Tool: Using Chain-of-Verification (CoVe) methodology for asse
 
 📄 **Original Article**: [Understanding & Implementation of Chain-of-Verification (CoVe)](https://sourajit16-02-93.medium.com/chain-of-verification-cove-understanding-implementation-e7338c7f4cb5) by Sourajit Saha
 
-## Architecture
+## Architecture Overview
 ![CoVe_Architecture](https://github.com/ritun16/chain-of-verification/assets/44939374/3efc0f5a-b7c6-4655-8a0e-e16c01cac97e)
+
+## Detailed Verification Process Flow
+
+```mermaid
+graph TB
+    %% Main Flow
+    Input[OSINT Information + Evidence] --> COVE[OSINTCOVEChain]
+    COVE --> QGen[Generate Verification Questions]
+    QGen --> DVChain[OSINTDataVerificationChain]
+    
+    %% Parallel Processing in OSINTDataVerificationChain
+    subgraph "OSINTDataVerificationChain Parallel Processing"
+        direction TB
+        DVChain --> |Environment Setup| Tools[Setup Analysis Tools]
+        DVChain --> |Execution Setup| Agent[Setup ReAct Agent]
+        Tools --> Format[Format React Prompt]
+        
+        %% Synchronization point
+        Format --> Sync[Synchronization Point]
+        Agent --> Sync
+        
+        %% Analysis Execution
+        Sync --> Analysis[Execute Data Analysis]
+        Analysis --> Results[Generate Verification Answers]
+    end
+    
+    %% Continue main flow
+    Results --> Cred[Credibility Assessment]
+    Cred --> Agg[Aggregate Results]
+    Agg --> Final[Final Verification Result]
+    
+    class Input,Final process;
+    class COVE,DVChain chain;
+    class Sync sync;
+```
+
+### Key Components and Their Functions
+
+1. **OSINTCOVEChain**: The main orchestrator
+   - Takes OSINT information and collected evidence as input
+   - Manages the verification process flow
+   - Coordinates between different components
+
+2. **OSINTDataVerificationChain**: Core verification engine
+   - **Parallel Processing**:
+     - Environment Setup: Prepares analysis tools and configurations
+     - Execution Setup: Initializes ReAct agent and required components
+   - **Synchronized Execution**:
+     - Ensures both setup paths are complete before analysis
+     - Executes data analysis with prepared tools and agent
+     - Generates comprehensive verification answers
+
+3. **ReAct Agent**: Analysis executor
+   - Utilizes prepared environment and tools
+   - Performs data analysis based on verification questions
+   - Generates detailed analysis results
+
+### Process Review
+
+The verification process follows these steps in parallel and sequence:
+
+1. **Initial Setup** (Parallel):
+   - Environment preparation (tools, configurations)
+   - ReAct agent initialization
+   
+2. **Synchronized Execution**:
+   - Tool and agent synchronization
+   - Data analysis execution
+   
+3. **Results Processing** (Sequential):
+   - Verification answer generation
+   - Credibility assessment
+   - Final result aggregation
+
+This approach ensures:
+- Efficient parallel processing where possible
+- Proper synchronization of dependencies
+- Comprehensive verification results
+- Reliable execution flow
 
 ## 🚀 Getting Started
 1. **Clone the Repository**

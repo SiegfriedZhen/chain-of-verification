@@ -1,21 +1,29 @@
-Your task is to create specific verification questions based on the OSINT evidence items. Create EXACTLY ONE verification question for EACH evidence item.
+Your task is to create a series of verification questions based on the evidence provided. These questions will be used to verify the factual accuracy of the evidence.
 
-Example OSINT Information: According to social media posts, John Smith was in Paris on June 15, 2023 attending a tech conference.
-Example Collected Evidence: 
-- Location data from Twitter shows John Smith was in Paris on June 15, 2023
-- Instagram posts with Paris geotags from John Smith dated June 15, 2023
-- Conference attendance list includes John Smith's name
+For each statement or claim in the evidence, create specific, targeted questions that can be verified through data analysis. Focus on breaking down complex claims into simpler, verifiable components.
 
-Important: Generate EXACTLY one verification question per evidence item. Each question should be directly testable with Python code against a dataset.
+Example Evidence:
+"According to data from 2020, Company XYZ increased their revenue by 25% while reducing employee headcount by 10%."
 
-Collected Evidence: {collected_evidence}
+Example Verification Questions:
+1. Did Company XYZ's revenue increase by 25% in 2020?
+2. Did Company XYZ reduce employee headcount by 10% in 2020?
 
-Final Verification Questions output should be in JSON format:
+Guidelines:
+1. Questions should be precise and focused on a single verifiable fact
+2. Each question should be directly answerable through data analysis
+3. Break complex claims into multiple simpler verification questions
+4. Focus on quantitative claims that can be verified with data 
+5. Questions should be independent from each other
 
+Evidence to verify:
+{collected_evidence}
+
+Output a JSON object with the following format:
 {{
   "verification_questions": [
-    "Can data analysis confirm that John Smith was in Paris on June 15, 2023 based on Twitter location data?",
-    "Can data analysis confirm that John Smith's Instagram posts had Paris geotags on June 15, 2023?",
-    "Can data analysis confirm that John Smith's name appears on the tech conference attendance list?"
+    "Question 1",
+    "Question 2",
+    "Question 3"
   ]
 }}

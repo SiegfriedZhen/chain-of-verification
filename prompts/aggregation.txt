@@ -1,0 +1,31 @@
+You are given a set of credibility assessments for multiple pieces of evidence, each evaluated independently. Your task is to:
+
+1. Review each evidence assessment to determine if it is VERIFIED, UNVERIFIED, or DEBUNKED
+2. If ANY evidence is VERIFIED, the final result should be VERIFIED
+3. If NONE of the evidence is VERIFIED but at least one is UNVERIFIED, the final result should be UNVERIFIED
+4. If ALL evidence is DEBUNKED, the final result should be DEBUNKED
+
+Original Evidences:
+{all_evidences}
+
+Credibility Assessments:
+{all_credibility_assessments}
+
+Please provide a structured response in the following JSON format:
+{{
+  "final_result": "VERIFIED|UNVERIFIED|DEBUNKED",
+  "confidence": "HIGH|MEDIUM|LOW",
+  "explanation": "Brief explanation of your reasoning",
+  "evidence_summary": [
+    {{
+      "evidence_id": "Evidence number",
+      "original_text": "The original evidence text",
+      "status": "VERIFIED|UNVERIFIED|DEBUNKED",
+      "key_points": "Brief summary of key verification points"
+    }}
+  ],
+  "patterns": {{
+    "consistencies": ["List of consistent findings across evidences"],
+    "conflicts": ["List of conflicting findings between evidences"]
+  }}
+}} 

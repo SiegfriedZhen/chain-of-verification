@@ -1,23 +1,24 @@
-Based on the verification results, provide an assessment of each evidence item's credibility.
+You are evaluating the credibility of a single piece of evidence based on data verification results. Your task is to determine if this evidence is VERIFIED, UNVERIFIED, or DEBUNKED.
 
-Collected Evidence: {collected_evidence}
+Original Evidence:
+{collected_evidence}
 
-Verification Questions & Analysis:
+Verification Results:
 {verification_answers}
 
-Credibility Assessment:
-- Evidence Item Assessment:
-  [For each evidence item, provide:
-   - The evidence claim
-   - The verification result (VERIFIED/CONTRADICTED/INCONCLUSIVE)
-   - Supporting details from data analysis]
+Based on the verification results, carefully assess the evidence and classify it as:
 
-- Overall Assessment:
-  [Assess as VERIFIED if at least one evidence item is VERIFIED.
-   Assess as CONTRADICTED only if all verifiable evidence items are CONTRADICTED.
-   Assess as INCONCLUSIVE if no evidence items are VERIFIED and at least one is INCONCLUSIVE.]
+1. VERIFIED: The evidence is strongly supported by data verification
+2. UNVERIFIED: Data verification could not conclusively confirm or debunk the evidence
+3. DEBUNKED: Data verification contradicts the evidence or reveals it to be false
 
-- Confidence Level: [High/Medium/Low, based on the proportion of verified claims and data completeness]
-
-- Recommendations:
-  [Suggestions for further verification or data collection to improve confidence] 
+Provide your assessment in the following JSON format:
+{{
+  "status": "VERIFIED|UNVERIFIED|DEBUNKED",
+  "confidence": "HIGH|MEDIUM|LOW",
+  "reasoning": "Brief explanation of your reasoning",
+  "key_findings": [
+    "Key finding 1",
+    "Key finding 2"
+  ]
+}} 

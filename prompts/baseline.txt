@@ -1,5 +1,11 @@
-Summarize the provided OSINT (Open Source Intelligence) information concisely.
+Answer the question correctly and concisely. Focus on addressing multiple aspects of the question independently.
 
-OSINT Information: {osint_information}
+For complex questions with multiple parts:
+1. Identify each distinct sub-question or aspect
+2. Answer each part separately
+3. Keep your answers direct and factual
+4. Avoid unnecessary details or explanations
 
-Summary: 
+Question: {original_question}
+
+Answer: 

@@ -3,13 +3,13 @@ from langchain_openai import ChatOpenAI
 from langchain_anthropic import ChatAnthropic
 from dotenv import load_dotenv
 from src.osint_verification_chain import OSINTCOVEChain
+from src.config import ModelConfig
 
 # Load environment variables (for API keys)
 load_dotenv()
 
 # Initialize language models
-llm = ChatOpenAI(temperature=0, model="gpt-4o-mini")
-react_llm = ChatAnthropic(temperature=0, model="claude-3-haiku-20240307")
+model_config = ModelConfig()
 
 # Evidence collected from data analysis
 evidence_list = [
@@ -19,7 +19,7 @@ evidence_list = [
 ]
 
 # Create chain
-osint_chain_builder = OSINTCOVEChain(llm=llm, react_llm=react_llm, data_path="data/yt_tsai_secret.xlsx")
+osint_chain_builder = OSINTCOVEChain(model_config=model_config, data_path="data/yt_tsai_secret.xlsx")
 osint_chain = osint_chain_builder()
 
 # Run the chain
@@ -28,11 +28,11 @@ result = osint_chain.invoke({
 })
 
 print("\nVerification Questions:")
-print(result["verification_questions"])
+print(result["all_verification_questions"])
 
 print("\nVerification Answers:")
-print(result["verification_answers"])
+print(result["all_verification_answers"])
 
 print("\nFinal Assessment:")
-print(result["credibility_assessment"])
+print(result["final_verification_result"])
 
