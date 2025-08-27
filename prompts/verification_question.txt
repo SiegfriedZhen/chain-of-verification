@@ -15,6 +15,7 @@ Guidelines:
 3. Break complex claims into multiple simpler verification questions
 4. Focus on quantitative claims that can be verified with data 
 5. Questions should be independent from each other
+6. Create at most {max_questions} verification questions (this is a strict limit)
 
 Evidence to verify:
 {collected_evidence}
@@ -27,3 +28,5 @@ Output a JSON object with the following format:
     "Question 3"
   ]
 }}
+
+Remember: The maximum number of questions allowed is {max_questions}. Do not exceed this limit.

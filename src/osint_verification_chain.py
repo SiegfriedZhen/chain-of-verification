@@ -198,18 +198,29 @@ class OSINTCOVEChain:
             for i, evidence in enumerate(evidences, 1):
                 evidence_id = str(i)
                 
+                # Get max questions parameter
+                max_questions = self.model_config.model_settings["verification_question"].get("max_questions", 3)
+                
                 # Create verification question chain for this evidence
                 verification_question_prompt = PromptTemplate(
-                    input_variables=["collected_evidence"],
+                    input_variables=["collected_evidence", "max_questions"],
                     template=verification_question_prompt_text
                 )
                 
-                evidence_input = {"collected_evidence": evidence}
+                evidence_input = {
+                    "collected_evidence": evidence,
+                    "max_questions": max_questions
+                }
                 
                 verification_question_chain_output = verification_question_prompt | self.model_config.verification_question_model | parser
                 verification_questions_result = verification_question_chain_output.invoke(evidence_input)
                 
                 verification_questions = verification_questions_result.verification_questions if hasattr(verification_questions_result, "verification_questions") else verification_questions_result["verification_questions"]
+                
+                # Limit to max_questions if needed
+                if len(verification_questions) > max_questions:
+                    verification_questions = verification_questions[:max_questions]
+                    print(f"Limited verification questions to maximum of {max_questions}")
                 
                 # Store questions with evidence ID
                 for q in verification_questions:
